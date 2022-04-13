@@ -25,8 +25,8 @@ class Stack{
             if(_size + 1 > max_size){
                 cout << "Stack overflow" << endl;
             } else{
-                Node temp = new Node();
-                (temp).data = x;
+                Node *temp = new Node();
+                (*temp).data = x;
                 (*temp).next = head;
                 head = temp;
                 _size++;
@@ -63,18 +63,18 @@ class Stack{
 };
 
 int main() {
-    Stack stack = new Stack(1);
-    (stack).push(1);
-    cout << (stack).size() << endl;
-    (stack).push(2);
-    cout << (stack).size() << endl;
-    /
-    (stack).print();
-    cout << (stack).size() << endl;
-    cout << (stack).isEmpty() << endl;
-    (stack).pop();
+    Stack *stack = new Stack(1);
+    (*stack).push(1);
+    cout << (*stack).size() << endl;
+    (*stack).push(2);
+    cout << (*stack).size() << endl;
+
     (*stack).print();
-    */
+    cout << (*stack).size() << endl;
+    cout << (*stack).isEmpty() << endl;
+    (*stack).pop();
+    (*stack).print();
+
 
     return 0;
 }
