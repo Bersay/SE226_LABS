@@ -1,0 +1,109 @@
+my_list = []
+print(my_list)
+my_list.append('Bersay')
+print(list)
+my_list.append ('Python')
+print (my_list)
+my_list.append('Guido van Rossum')
+print(my_list)
+del my_list [0]
+print (my_list)
+my_list.append ('is the inventor of')
+print (my_list)
+popped_element = my_list.pop(0)
+my_list.append(popped_element)
+print(my_list)
+
+---------------------------------------------------------------------------------------------------
+
+import time
+
+def random_choice(array, n):
+    return_values = []
+    for i in range(n):
+        time.sleep(0.001)
+        timestamp = int(time.time()*1e6)
+        random_selected_idx = timestamp % len(array)
+        selected_value = array[random_selected_idx]
+        if not selected_value in return_values:
+            return_values.append(selected_value)
+    return return_values
+    
+words = ["a","ability","able","about","above","accept","according","account","across","act","action","activity","actually","add","address","administration","admit","adult","affect","after","again","against","age","agency","agent","ago","agree","agreement","ahead","air","all","allow","almost","alone","along","already","also","although","always","American","among","amount","analysis","and","animal","another","answer","any","anyone","anything","appear","apply","approach","area","argue","arm","around","arrive","art","article","artist","as","ask","assume","at","attack","attention","attorney","audience","author","authority","available","avoid","away","baby","back","bad","bag","ball","bank","bar","base","be","beat","beautiful","because","become","bed","before","begin","behavior","behind","believe","benefit","best","better","between","beyond","big","bill","billion"]
+    
+slice_size = 3
+for i in range(len(words)//slice_size):
+    my_slice = slice(i*slice_size , (i+1)*slice_size)
+    print(words[my_slice])
+print(words[(i+1)*slice_size:])
+
+user_number = int(input("User Number: "))
+
+#assert 3<=user_number<=7, "User Number should be between 3,7 (inclusive)"
+
+if not 3<=user_number<=7:
+    raise ValueError("User Number should be between 3,7 (inclusive)")
+
+password = ""
+for word in random_choice(words, user_number):
+    password += word
+print(password)
+        
+x1 = set()
+x2 = set()
+for _ in range(5):
+    password = ""
+    for word in random_choice(words, user_number):
+        password += word 
+    
+    if user_number < 5:
+        x1.add(password)
+    else:
+        x2.add(password)
+        
+x = x1 | x2
+print(x)
+
+---------------------------------------------------------------------------------------------------
+
+Dict = {1: 1, 2: 4, 3: 9, 4: 16, 5: 25, 6: 36, 7: 49, 8: 64, 9: 81,10: 100, 11: 121, 12: 144, 13: 169, 14: 196, 15: 225, 16: 256,17: 289, 18: 324, 19: 361, 20: 400, 21: 441, 22: 484, 23: 529,24: 576, 25: 625, 26: 676, 27: 729, 28: 784, 29: 841, 30: 900}
+
+print("Dictionary: ")
+print(Dict)
+
+print("Printing each key-value pair in a different line:")
+for x in range(1,30):
+    print(x, ":", Dict[x])
+
+sum = 0
+for x in range(1,30):
+    sum += Dict[x]
+print("Sum of the values in dictionary is:",sum)
+
+Dict.pop(10)
+print("The latest version of the dictionary is below.")
+print(Dict)
+
+---------------------------------------------------------------------------------------------------
+
+dictionary1 = {'Tony': 41, 'Steve': 39, 'Nat': 35}
+dictionary2 = {'Bruce': 41, 'Clint': 35, 'Thor': 38}
+
+merged_dictionary = dictionary1 | dictionary2
+print('Name  Age')
+for key,value in merged_dictionary.items():
+    print(key , ':' , value)
+
+del merged_dictionary['Nat']
+print('Name  Age')
+for key,value in merged_dictionary.items():
+    print(key , ':' , value)
+
+dictionary_items = merged_dictionary.items()
+sorted_items = sorted(dictionary_items)
+print(sorted_items)
+
+max = max(merged_dictionary.keys(), key = (lambda data: merged_dictionary[data]))
+min = min(merged_dictionary.keys(), key = (lambda data: merged_dictionary[data]))
+print('Max: ' , merged_dictionary[max])
+print('Min: ' , merged_dictionary[min])
