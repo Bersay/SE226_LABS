@@ -1,8 +1,8 @@
 my_list = []
 print(my_list)
 my_list.append('Bersay')
-print(list)
-my_list.append ('Python')
+print(my_list)
+my_list.append ('Python.')
 print (my_list)
 my_list.append('Guido van Rossum')
 print(my_list)
