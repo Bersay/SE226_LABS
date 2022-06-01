@@ -1,0 +1,47 @@
+from abc import ABC
+
+
+class Count(ABC):
+    def __init__(self, address):
+        self.address = address
+
+    def calculateFreqs(self, address):
+        pass
+
+
+class ListCount(Count):
+    def __init__(self, address):
+        Count.__init__(self, address)
+
+    def calculateFreqs(self, address):
+        file=open(address)
+        x = file.readline().split()
+        words_list=[]
+        for i in x:
+            if i not in words_list:
+                words_list.append(i)
+        for i in range(0,len(words_list)):
+            print("Frequency of word ", words_list[i], "is=", x.count(words_list[i]))
+
+
+class DictCount(Count):
+    def __init__(self, address):
+        Count.__init__(self, address)
+
+    def calculateFreqs(self, address):
+        file=open(address)
+        x = file.readline()
+        words_dictionary={}
+        for word in x.split():
+            words_dictionary[word]= words_dictionary.get(word, 0)+1
+        for key in words_dictionary:
+            print("{} : {}".format(key, words_dictionary[key]))
+
+
+address_1 = "C:\\Users\\bersay\\Downloads\\Lab8_Strange.txt"
+
+count_list = ListCount(address_1)
+count_list.calculateFreqs(address_1)
+
+count_dict = DictCount(address_1)
+count_dict.calculateFreqs(address_1)
